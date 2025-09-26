@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/SearchForPostalCode.App.props" />
-</Project>
