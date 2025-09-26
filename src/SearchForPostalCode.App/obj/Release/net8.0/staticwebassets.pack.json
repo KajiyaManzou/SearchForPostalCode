@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/bin/Release/net8.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/obj/Release/net8.0/compressed/50dh0ozggd.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/obj/Release/net8.0/scopedcss/bundle/SearchForPostalCode.App.styles.css",
+      "PackagePath": "staticwebassets/SearchForPostalCode.App.styles.css"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/obj/Release/net8.0/service-worker-assets.js",
+      "PackagePath": "staticwebassets/service-worker-assets.js"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/obj/Release/net8.0/service-worker/service-worker.js",
+      "PackagePath": "staticwebassets/service-worker.js"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/wwwroot/appsettings.json",
+      "PackagePath": "staticwebassets/appsettings.json"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/wwwroot/icon-192.png",
+      "PackagePath": "staticwebassets/icon-192.png"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/wwwroot/manifest.json",
+      "PackagePath": "staticwebassets/manifest.json"
+    },
+    {
+      "Id": "/workspace/SearchForPostalCode/src/SearchForPostalCode.App/wwwroot/sample-data/weather.json",
+      "PackagePath": "staticwebassets/sample-data/weather.json"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.SearchForPostalCode.App.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.build.SearchForPostalCode.App.props",
+      "PackagePath": "build\\SearchForPostalCode.App.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildMultiTargeting.SearchForPostalCode.App.props",
+      "PackagePath": "buildMultiTargeting\\SearchForPostalCode.App.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildTransitive.SearchForPostalCode.App.props",
+      "PackagePath": "buildTransitive\\SearchForPostalCode.App.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
