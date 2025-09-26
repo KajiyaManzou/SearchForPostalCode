@@ -1,0 +1,111 @@
+@page "/"
+@* GetFromJsonAsync拡張メソッドに必要 *@
+@using System.Net.Http.Json
+@* DIコンテナからHttpClientを注入 *@
+@inject HttpClient Http
+
+<PageTitle>郵便番号検索</PageTitle>
+
+<MudPaper Class="d-flex justify-center" Style="padding: 20px;">
+    <div class="d-flex flex-column">
+        <MudText Typo="Typo.h3" Class="mb-4">郵便番号検索</MudText>
+
+        <div class="d-flex align-center gap-4 mb-4">
+            <MudTextField @bind-Value="_zipcode" Label="郵便番号" Placeholder="例: 1000001" Variant="Variant.Outlined"
+                Class="flex-grow-1" />
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SearchAddress">
+                検索
+            </MudButton>
+        </div>
+    </div>
+</MudPaper>
+
+@if (_isLoading)
+{
+    <div class="d-flex justify-center my-4">
+        <MudProgressCircular Indeterminate="true" Color="Color.Primary" Size="Size.Large" />
+        <MudText Class="ml-4">検索中...</MudText>
+    </div>
+}
+else if (!string.IsNullOrEmpty(_errorMessage))
+{
+    <div class="d-flex justify-center my-4">
+        <MudAlert Severity="Severity.Error">
+            @_errorMessage
+        </MudAlert>
+    </div>
+}
+else if (_addressResult != null)
+{
+    <div class="d-flex justify-center my-4">
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">検索結果</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Typo="Typo.body1" Class="mb-2">
+                    <strong>住所:</strong>
+                    @_addressResult.Prefecture
+                    @_addressResult.City
+                    @_addressResult.Town
+                </MudText>
+                <MudText Typo="Typo.body2">
+                    <strong>カナ:</strong>
+                    @_addressResult.PrefectureKana
+                    @_addressResult.CityKana
+                    @_addressResult.TownKana
+                </MudText>
+            </MudCardContent>
+        </MudCard>
+    </div>
+}
+
+@code {
+    private string? _zipcode;
+    private AddressResult? _addressResult;
+    private string? _errorMessage;
+    private bool _isLoading = false;
+
+    private async Task SearchAddress()
+    {
+        if (string.IsNullOrWhiteSpace(_zipcode))
+        {
+            _errorMessage = "郵便番号を入力してください。";
+            _addressResult = null;
+            return;
+        }
+
+        _isLoading = true;
+        _errorMessage = null;
+        _addressResult = null;
+
+        try
+        {
+            // APIにリクエストを送信し、レスポンスをZipCloudResponseクラスにマッピング
+            var response = await
+            Http.GetFromJsonAsync<PostalCloudResponse>($"https://zipcloud.ibsnet.co.jp/api/search?zipcode={_zipcode}");
+
+            if (response?.Status == 200 && response.Results != null && response.Results.Count > 0)
+            {
+                // 最初の結果を取得
+                _addressResult = response.Results[0];
+            }
+            else
+            {
+                // APIからのエラーメッセージまたはカスタムメッセージを設定
+                _errorMessage = response?.Message ?? "住所が見つかりませんでした。";
+            }
+        }
+        catch (Exception ex)
+        {
+            // ネットワークエラーなどを処理
+            _errorMessage = $"検索中にエラーが発生しました: {ex.Message}";
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+}
