@@ -84,11 +84,11 @@ else if (_addressResult != null)
         try
         {
             // APIにリクエストを送信し、レスポンスをZipCloudResponseクラスにマッピング
-            //var response = await
-            //Http.GetFromJsonAsync<PostalCloudResponse>($"https://zipcloud.ibsnet.co.jp/api/search?zipcode={_zipcode}");
+            var response = await
+            Http.GetFromJsonAsync<PostalCloudResponse>($"https://zipcloud.ibsnet.co.jp/api/search?zipcode={_zipcode}");
             // CORS対策　CORSプロキシサービスを使用
-            var proxyUrl = $"https://cors-anywhere.herokuapp.com/https://zipcloud.ibsnet.co.jp/api/search?zipcode={_zipcode}";
-            var response = await Http.GetFromJsonAsync<PostalCloudResponse>(proxyUrl);
+            //var proxyUrl = $"https://cors-anywhere.herokuapp.com/https://zipcloud.ibsnet.co.jp/api/search?zipcode={_zipcode}";
+            //var response = await Http.GetFromJsonAsync<PostalCloudResponse>(proxyUrl);
 
             if (response?.Status == 200 && response.Results != null && response.Results.Count > 0)
             {
